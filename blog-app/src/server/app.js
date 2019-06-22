@@ -8,6 +8,7 @@ const config=require('./db/common/config');
 const passport=require('passport');
 const TwitterStrategy=require('passport-twitter');
 const session= require('express-session');
+const blogRoute= require('./routes/blogRoute');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -49,7 +50,8 @@ app.get('/loginWithTwitter',
    res.redirect('http://localhost:4200/dashboard');
   });
 
-app.use('/',loginRoute);
+  //app.use('/blog', blogRoute);
+app.use('/',blogRoute);
 var port =process.env.PORT || 1234;
 app.listen(port,()=>{
     process.stdout.write('server started on port '+port);

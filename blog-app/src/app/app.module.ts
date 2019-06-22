@@ -8,13 +8,15 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import {RouterModule} from '@angular/router';
 import { LoginComponentComponent } from './login/login-component/login-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UtilServiceService } from './services/util-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserModule, LoginModule,NgbModule, BrowserAnimationsModule, DashboardModule,
+    BrowserModule,HttpClientModule , LoginModule,NgbModule, BrowserAnimationsModule, DashboardModule,
     RouterModule.forRoot([{
       path: '', component: LoginComponentComponent
     },
@@ -23,7 +25,7 @@ import { LoginComponentComponent } from './login/login-component/login-component
   }])
     
   ],
-  providers: [],
+  providers: [UtilServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
