@@ -7,6 +7,6 @@ loginRoute.get('/loginWithTwitter',(req, res)=>{
 
 loginRoute.get('/',(req, res)=>{
     res.redirect('http://localhost:4200');
-})
+});
 
 module.exports= loginRoute;

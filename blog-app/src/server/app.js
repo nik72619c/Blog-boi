@@ -46,7 +46,7 @@ app.get('/loginWithTwitter',
   passport.authenticate('twitter', { failureRedirect: '/',session: false, scope:['email'] }),
   function(req, res) {
     // Successful authentication, redirect home.
-   res.redirect('https://www.google.com');
+   res.redirect('http://localhost:4200/dashboard');
   });
 
 app.use('/',loginRoute);

@@ -12,13 +12,6 @@ export class LoginComponentComponent implements OnInit {
   ngOnInit() {
   }
   loginWithTwitter(){
-    console.log('loginWithTwitter called..');
-    this.http.get('http://localhost:1234/loginWithTwitter',{
-      withCredentials: true
-    }).toPromise().then(data=>{
-      console.log('data obtained is', data);        
-  
-  }).catch(err=>console.log('request failed', err));
   }
 
 }

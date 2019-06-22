@@ -1,8 +1,14 @@
 .login-background{
-    background-image: url('https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Simple-Background-Images-53.png');
+    background-image: url('https://cdn-images-1.medium.com/max/2600/1*G_By60RXqLLf_t7g2LS9cA.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 980px
+}
+
+.login-inner-section {
+position: absolute;
+top: 50%;
+left: 50%
 }
