@@ -1,0 +1,16 @@
+.heading{
+    color: black;
+    font-size: 30;
+    font-style: oblique;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.content{
+    color: black;
+    font-size: 20;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: left;
+
+}

@@ -10,13 +10,16 @@ import {RouterModule} from '@angular/router';
 import { LoginComponentComponent } from './login/login-component/login-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UtilServiceService } from './services/util-service.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserModule,HttpClientModule , LoginModule,NgbModule, BrowserAnimationsModule, DashboardModule,
+    BrowserModule,HttpClientModule , LoginModule,NgbModule, 
+    BrowserAnimationsModule, 
+    FormsModule,DashboardModule,
     RouterModule.forRoot([{
       path: '', component: LoginComponentComponent
     },

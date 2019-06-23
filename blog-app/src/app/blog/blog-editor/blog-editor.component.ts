@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , HostListener} from '@angular/core';
 
 @Component({
   selector: 'blog-editor',
@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogEditorComponent implements OnInit {
 
+  @HostListener('window:keyup', ['$event'])
+  addSection(event: KeyboardEvent) {
+    console.log(event);
+    
+    if (event.keyCode === 13) {
+      console.log('enter key event via hostlstener called..');
+    }
+  }
   constructor() { }
 
   ngOnInit() {
