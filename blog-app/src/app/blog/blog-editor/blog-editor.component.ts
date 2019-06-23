@@ -29,8 +29,12 @@ export class BlogEditorComponent implements OnInit {
   content: ['content 4', ' content 5', ' content 6']
 }]
   }
-  addParagraph(){
-
+  addParagraph(event, isHeading){
+    console.log('event value is', event.target.value);
+    console.log('isHeading', isHeading);
+  }
+  headingChanged(){
+    console.log('the array for blog obtained is', this.blog);
   }
 
 }

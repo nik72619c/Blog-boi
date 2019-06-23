@@ -1,16 +1,25 @@
 .heading{
     color: black;
-    font-size: 30;
+    font-size: 40;
     font-style: oblique;
     font-weight: bolder;
     text-align: center;
 }
 
-.content{
+.content-subheading{
     color: black;
-    font-size: 20;
+    font-size: 30;
     font-style: oblique;
     font-weight: bold;
+    text-align: center;
+
+}
+
+.content{
+    color: lightslategrey;
+    font-size: 20;
+    font-style: italic;
+    font-weight: normal;
     text-align: left;
 
 }

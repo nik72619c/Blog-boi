@@ -13,13 +13,13 @@
               <input type="text" class="form-control heading" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Title..." placeholder="Title...">
             </div>
            
-  <div *ngFor="let section of blog">
+  <div *ngFor="let section of blog;index as headingIndex">
       <div class="input-group input-group-sm mb-2">
-          <input type="text" class="form-control content" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New Sub heading here..." [value]="section.heading">
+          <input type="text" class="form-control content-subheading" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New Sub heading here..." [(value)]="section.heading" (input)="addParagraph($event, true)" id="heading{{headingIndex+1}}">
       </div>
 
       <div class="input-group input-group-sm mb-2" *ngFor="let paragraph of section.content">
-            <input type="text" class="form-control content" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New paragraph here..." [value]="paragraph">
+            <input type="text" class="form-control content" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New paragraph here..." [(value)]="paragraph" (input)="addParagraph($event, false)" id="paragraph{{headingIndex+1}}">
       </div>
   </div>
 
