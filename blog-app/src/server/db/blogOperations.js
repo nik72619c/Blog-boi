@@ -19,8 +19,11 @@ var blogOperations={
                             bio: 'working and learning',
                             username: 'nik72619c'
                         });
-                    user.blogs.push(new Blog(blog));
+                    user.blogs.push(new Blog({
+                        blogContent: [blog]
+                    }));
                     user.save(err=>{
+                        console.log('err',err);
                         if(err){
                             res.json({
                                 msg: 'some error occured while saving the user and his blogs !'
@@ -42,8 +45,20 @@ var blogOperations={
     updateBlog: async ()=>{
     //TODO function for updating the existing blog
     },
-    getBlogs: async ()=>{
+    getBlogs: (req, res)=>{
         //TODO function for getting all the blogs for the user to view and read
+        User.findOne({email: 'nikhil@gmail.com'}).populate('blogs').exec((err, data)=>{
+            if(err){
+                res.json({
+                    err
+                });
+            }
+            else{
+                res.json({
+                    data
+                })
+            }
+        })
     }
 };
 

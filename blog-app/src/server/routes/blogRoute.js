@@ -7,4 +7,8 @@ blogRoute.post('/createBlog',(req, res)=>{
     blogOperations.createBlog(req.body.blog, req, res);
 });
 
+blogRoute.get('/getBlogs', (req, res)=>{
+    blogOperations.getBlogs(req, res);
+})
+
 module.exports=blogRoute;

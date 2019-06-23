@@ -21,4 +21,8 @@ export class UtilServiceService {
     withCredentials: true
     })
    }
+
+   getBlogs(){
+     return this.http.get('http://localhost:1234/getBlogs');
+   }
 }

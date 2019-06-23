@@ -15,7 +15,8 @@ export class DashboardComponent implements OnInit {
     //TODO call to server to get all the blogs
     console.log('ngOnInit for dashboard called...');
     this.result=this.utilsService.createBlog();
-    this.result.subscribe(value=>console.log('value obtained from the obsevable ', value))
+    this.result.subscribe(value=>console.log('value obtained from the obsevable ', value));
+    this.utilsService.getBlogs().subscribe(value=>console.log(' blogs obtained', value));
   }
 
 }
