@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ReflectiveInjector} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { BlogEditorComponent } from '../blog/blog-editor/blog-editor.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilServiceService {
-
-  constructor(private http: HttpClient) {
+  rootViewContainerRef:any;
+  constructor(private http: HttpClient, private factoryResolver: ComponentFactoryResolver) {
 
     
    }
@@ -24,5 +25,23 @@ export class UtilServiceService {
 
    getBlogs(){
      return this.http.get('http://localhost:1234/getBlogs');
+   }
+   setRootViewContainerRef(containerRef){
+     this.rootViewContainerRef= containerRef;
+   }
+
+   toggleModal(){
+    if(this.rootViewContainerRef.length>0){
+      this.rootViewContainerRef.remove();
+      }
+      else {
+     const factory=this.factoryResolver.resolveComponentFactory(BlogEditorComponent);
+     const component= factory.create(this.rootViewContainerRef.parentInjector);
+     this.rootViewContainerRef.insert(component.hostView);
+      }
+   }
+   hideModal(){
+     
+
    }
 }

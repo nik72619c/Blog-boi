@@ -8,6 +8,9 @@ var blogOperations={
         //imitating fake data for now, to be updated
 
         try{
+            var blogInstance=new Blog({
+                blogContent: [blog]
+            });
             User.findOne({email: 'nikhil@gmail.com'}, (err, content)=>{
                     if(err){
                         res.json({err});
@@ -19,9 +22,7 @@ var blogOperations={
                             bio: 'working and learning',
                             username: 'nik72619c'
                         });
-                    user.blogs.push(new Blog({
-                        blogContent: [blog]
-                    }));
+                    user.blogs.push(blogInstance);
                     user.save(err=>{
                         console.log('err',err);
                         if(err){
@@ -30,16 +31,26 @@ var blogOperations={
                             })
                         }
                         else{
-                            res.json({
-                                msg: 'user and his blogs saved successfully !',
-                                user: user
+                            blogInstance.save(err=>{
+                                if(err){
+                                    res.json({
+                                        err
+                                    })
+                                } else{
+
+                                    res.json({
+                                        msg: 'user and his blogs saved successfully !',
+                                        user: user
+                                    });
+                                }
                             })
+
                         }
                     })
                     }
             })
         } catch(e){
-
+               console.log('catch error', e); 
         }
     },
     updateBlog: async ()=>{
