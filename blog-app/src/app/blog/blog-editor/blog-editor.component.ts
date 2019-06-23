@@ -15,9 +15,22 @@ export class BlogEditorComponent implements OnInit {
       console.log('enter key event via hostlstener called..');
     }
   }
-  constructor() { }
+  blog: any;
+  constructor() {
+    this.blog=[];
+   }
 
   ngOnInit() {
+    this.blog=[{heading: 'my first ever blog',
+                content: ['content 1', 'content 2']
+  },
+{
+  heading: 'my second heading ',
+  content: ['content 4', ' content 5', ' content 6']
+}]
+  }
+  addParagraph(){
+
   }
 
 }
