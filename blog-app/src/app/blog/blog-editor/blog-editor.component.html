@@ -18,8 +18,8 @@
           <input type="text" class="form-control content-subheading" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New Sub heading here..." [(value)]="section.heading" id="heading{{headingIndex+1}}">
       </div>
 
-      <div class="input-group input-group-sm mb-2" *ngFor="let paragraph of section.content">
-            <input type="text" class="form-control content" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New paragraph here..." [(value)]="paragraph" (keypress)="addParagraph($event,'heading'+headingIndex)" (input)="handleChangeParagraph($event, 'heading'+headingIndex)" id="paragraph{{headingIndex+1}}">
+      <div class="input-group input-group-sm mb-2" *ngFor="let paragraph of section.content;index as paragraphIndex">
+            <input type="text" class="form-control content" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="New paragraph here..." [(value)]="paragraph" (keypress)="addParagraph($event,'heading'+headingIndex)" (input)="handleChangeParagraph($event,headingIndex, paragraphIndex)" id="paragraph{{headingIndex+1}}">
       </div>
   </div>
 

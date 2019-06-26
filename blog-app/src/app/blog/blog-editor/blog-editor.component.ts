@@ -28,13 +28,15 @@ export class BlogEditorComponent implements OnInit {
   content: ['']
 }];
   }
-  addParagraph(event, id){
+  addParagraph(event, id, paraIndex){
     if(event.keyCode===13){
     console.log('event value is', event.target.value);
     console.log('isHeading', id);
     let paragrpahId= id.charAt(id.length-1);
     console.log('paragraphId', paragrpahId);
-    this.blog[paragrpahId].content[''].push('');
+    this.blog[paragrpahId].content[paraIndex-1]=event.target.value;
+    this.blog[paragrpahId].content.length++;
+    this.blog[paragrpahId].content[paraIndex]='';
     console.log('new blog now', this.blog);
     }
   }
