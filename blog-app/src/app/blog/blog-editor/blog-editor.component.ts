@@ -9,8 +9,6 @@ export class BlogEditorComponent implements OnInit {
 
   @HostListener('window:keyup', ['$event'])
   addSection(event: KeyboardEvent) {
-    console.log(event.target.getAttribute('id'));
-    
     if (event.keyCode === 13) {
       console.log('enter key event via hostlstener called..');
     }
@@ -34,9 +32,10 @@ export class BlogEditorComponent implements OnInit {
     console.log('isHeading', id);
     let paragrpahId= id.charAt(id.length-1);
     console.log('paragraphId', paragrpahId);
-    this.blog[paragrpahId].content[paraIndex-1]=event.target.value;
+    console.log('type of paragraphId', paraIndex);
+    this.blog[paragrpahId].content[paraIndex]=event.target.value;
     this.blog[paragrpahId].content.length++;
-    this.blog[paragrpahId].content[paraIndex]='';
+    this.blog[paragrpahId].content[this.blog[paragrpahId].content.length-1]='';
     console.log('new blog now', this.blog);
     }
   }
