@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [BlogEditorComponent],
   imports: [
-    CommonModule, FormsModule
+  CommonModule, FormsModule
   ],
   exports: [BlogEditorComponent],
   bootstrap: [BlogEditorComponent]

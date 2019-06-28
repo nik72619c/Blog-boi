@@ -34,13 +34,16 @@ export class BlogEditorComponent implements OnInit {
     console.log('paragraphId', paragrpahId);
     console.log('type of paragraphId', paraIndex);
     this.blog[paragrpahId].content[paraIndex]=event.target.value;
-    this.blog[paragrpahId].content.length++;
+    this.blog[paragrpahId].content.splice(paraIndex, 0 ,'');
     this.blog[paragrpahId].content[this.blog[paragrpahId].content.length-1]='';
     console.log('new blog now', this.blog);
     }
   }
-  headingChanged(){
+  headingChanged(event,headingIndex){
+    
+    this.blog[headingIndex].heading=event.target.value;
     console.log('the array for blog obtained is', this.blog);
+    console.log('headingIndezx', headingIndex);
   }
   handleChangeParagraph(event, id){
 
