@@ -13,7 +13,7 @@ var blogOperations={
             });
             User.findOne({email: 'nikhil@gmail.com'}, (err, content)=>{
                     if(err){
-                        res.json({err});
+                        res.status(500).json({err});
                     }
                     else{
                         let user=new User({
@@ -27,20 +27,23 @@ var blogOperations={
                         console.log('err',err);
                         if(err){
                             res.json({
-                                msg: 'some error occured while saving the user and his blogs !'
+                                msg: 'some error occured while saving the user and his blogs !',
+                                status: 500
                             })
                         }
                         else{
                             blogInstance.save(err=>{
                                 if(err){
                                     res.json({
-                                        err
+                                        err,
+                                        status: 500
                                     })
                                 } else{
 
                                     res.json({
                                         msg: 'user and his blogs saved successfully !',
-                                        user: user
+                                        user: user,
+                                        status: 200
                                     });
                                 }
                             })

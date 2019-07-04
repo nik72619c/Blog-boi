@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule, FormsModule, HttpClientModule
   ],
   exports: [LoginComponentComponent],
-  bootstrap:[LoginComponentComponent]
-  
+  bootstrap:[LoginComponentComponent],
 })
 export class LoginModule { }

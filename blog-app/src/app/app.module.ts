@@ -11,6 +11,7 @@ import { LoginComponentComponent } from './login/login-component/login-component
 import { HttpClientModule } from '@angular/common/http';
 import { UtilServiceService } from './services/util-service.service';
 import { FormsModule } from '@angular/forms';
+import { BlogModule } from './blog/blog.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,HttpClientModule , LoginModule,NgbModule, 
     BrowserAnimationsModule, 
     FormsModule,DashboardModule,
+    BlogModule,
     RouterModule.forRoot([{
       path: '', component: LoginComponentComponent
     },

@@ -2,6 +2,7 @@ const mongoose=require('../common/connection');
 
 const schema=mongoose.Schema;
 var blogSchema= new schema({
+    title: String,
     blogContent : [{
         heading: String,
         content: [String]
