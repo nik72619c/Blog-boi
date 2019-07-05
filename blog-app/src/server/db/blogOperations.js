@@ -11,9 +11,33 @@ var blogOperations={
             var blogInstance=new Blog({
                 blogContent: [blog]
             });
-            User.findOne({email: 'nikhil@gmail.com'}, (err, content)=>{
+            User.findOne({email: 'nikhil@gmail.com', username: 'nik72619c'}, (err, content)=>{
+                console.log('content first', content);
                     if(err){
                         res.status(500).json({err});
+                    }
+
+                    else if(content && content.email){
+                        //user found in the DB
+                        console.log('content found', content);
+                        content.blogs.push(blogInstance);
+                        content.save();
+                        blogInstance.save(err=>{
+                            if(err){
+                                res.json({
+                                    err,
+                                    status: 500
+                                })
+                            } else{
+
+                                res.json({
+                                    msg: 'blog saved successfully !',
+                                    content: content,
+                                    status: 200
+                                });
+                            }
+                        })
+
                     }
                     else{
                         let user=new User({

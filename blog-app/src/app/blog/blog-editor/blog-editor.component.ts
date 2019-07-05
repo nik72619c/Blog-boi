@@ -78,7 +78,7 @@ export class BlogEditorComponent implements OnInit {
 
   createBlog(){
     let observable=this.utilService.createBlog({
-      ...this.blog,
+      ...this.blog[0],
       title: this.title
     });
     observable.subscribe(data=>console.log('data oncreating a blog', data));
