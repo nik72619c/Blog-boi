@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UtilServiceService } from './services/util-service.service';
 import { FormsModule } from '@angular/forms';
 import { BlogModule } from './blog/blog.module';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,10 @@ import { BlogModule } from './blog/blog.module';
     },
   {
     path: 'dashboard', component: DashboardComponent
-  }])
+  }]),
+    NbThemeModule.forRoot({ name: 'dark' }),
+    NbLayoutModule,
+    NbEvaIconsModule
     
   ],
   providers: [UtilServiceService],
