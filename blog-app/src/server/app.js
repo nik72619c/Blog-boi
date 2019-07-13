@@ -11,7 +11,7 @@ const session= require('express-session');
 const blogRoute= require('./routes/blogRoute');
 const User= require('./db/schema/userSchema');
 
-app.use(bodyParser.urlencoded({extended: false}));
+
 app.use(bodyParser.json());
 app.use(session({
   secret: 'nik',
@@ -23,6 +23,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors({
     origin: 'http://localhost:4200',
     credentials: true
@@ -32,6 +33,7 @@ passport.use(new TwitterStrategy({
     consumerKey: 'udN3PBp4JUqVgmDDCapBzPLPo',
     consumerSecret: 'kB4UTIiXHvNCKL5qpWzqcR6u1FdpIXwmMLjXg3KLwtmwC3mJYV',
     callbackURL: "/auth/callback",
+    includeEmail: true
   },
   function(accessToken, refreshToken, profile, done) {
         console.log('access token ', accessToken);
@@ -51,7 +53,8 @@ passport.use(new TwitterStrategy({
                   username: profile.username,
                   email: profile.emails,
                   bio: profile._json.description,
-                  uid: profile.id
+                  uid: profile.id,
+                  profile_image_url: profile.photos[0].value
               });
               user.save(function(err) {
                   if (err) console.log(err);

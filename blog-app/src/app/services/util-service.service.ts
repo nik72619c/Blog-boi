@@ -11,9 +11,9 @@ export class UtilServiceService {
 
    createBlog(blog){
     return this.http.post('http://localhost:1234/createBlog', {
-      blog,
-    withCredentials: true
-    });
+      blog},
+   {withCredentials: true}
+    );
    }
 
    getBlogs(){
