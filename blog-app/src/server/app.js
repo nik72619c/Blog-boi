@@ -13,21 +13,16 @@ const User= require('./db/schema/userSchema');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
-// app.get('/', (request, response)=>{
-
-// response.send('node backend works');
-
-// });
 app.use(session({
   secret: 'nik',
   resave: true,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: { 
     secure: false
 }
 }));
 app.use(passport.initialize());
+app.use(passport.session());
 app.use(cors({
     origin: 'http://localhost:4200',
     credentials: true
