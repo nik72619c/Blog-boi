@@ -8,6 +8,7 @@ blogRoute.post('/createBlog',(req, res)=>{
 });
 
 blogRoute.get('/getBlogs', (req, res)=>{
+    console.log('session created using passport-twitter as ', req.session);
     blogOperations.getBlogs(req, res);
 })
 
