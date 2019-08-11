@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { BlogModule } from './blog/blog.module';
 import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {StoreModule} from '@ngrx/store';
+import { blogReducer } from './store/Reducers/blogs.reducer';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
   ],
   imports: [
     BrowserModule,HttpClientModule , LoginModule,NgbModule, 
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule, StoreModule.forRoot({ blogs: blogReducer }),
     FormsModule,DashboardModule,
     BlogModule,
     RouterModule.forRoot([{

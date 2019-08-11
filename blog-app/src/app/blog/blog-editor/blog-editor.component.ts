@@ -1,3 +1,4 @@
+import { IBlog } from './../../interfaces/IBlog';
 import { Component, OnInit , HostListener} from '@angular/core';
 import { UtilServiceService } from 'src/app/services/util-service.service';
 import { AppComponent } from 'src/app/app.component';
@@ -10,25 +11,27 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class BlogEditorComponent implements OnInit {
   closeResult: string;
 
-  @HostListener('window:keyup', ['$event'])
-  addSection(event: KeyboardEvent) {
-    if (event.keyCode === 13) {
-      console.log('enter key event via hostlstener called..');
-    }
-  }
-  blog: any;
+  // @HostListener('window:keyup', ['$event'])
+  // addSection(event: KeyboardEvent) {
+  //   if (event.keyCode === 13) {
+  //     console.log('enter key event via hostlstener called..');
+  //   }
+  // }
+  blog: IBlog;
   title: string;
   constructor(public parent: AppComponent ,private utilService: UtilServiceService,private modalService: NgbModal) {
-    this.blog=[];
-    this.title='';
-
    }
 
   ngOnInit() {
-    this.blog=[{
-  heading: '',
-  content: ['']
-}];
+    this.blog={
+      title: 'sample title',
+      body: [
+        {
+          heading: 'sample heading',
+          content: ['some sample content, lets begin from here...']
+        }
+    ]
+    };
   }
 
   open(content) {
@@ -68,7 +71,7 @@ export class BlogEditorComponent implements OnInit {
     console.log('headingIndezx', headingIndex);
   }
   handleChangeParagraph(event, id){
-
+    
   }
 
   handleTitleChange(event){
