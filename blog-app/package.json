@@ -34,7 +34,7 @@
     "bootstrap": "^4.3.1",
     "cors": "^2.8.4",
     "eva-icons": "^1.1.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-session": "^1.16.2",
     "mongoose": "^5.2.6",
     "nodemon": "^1.18.3",
